@@ -12,47 +12,47 @@ Listed below are various aspects of the assignment.  When you turn in your work,
 
 ### Level 1 (4 pts)
 
-_____ 1 pt: `reflection.md` lists the classmates you consulted & TA hours attended
+___1__ 1 pt: `reflection.md` lists the classmates you consulted & TA hours attended
 
-_____ 1 pt: Program queries user for number of conversation rounds
+___1__ 1 pt: Program queries user for number of conversation rounds
 
-_____ 1 pt: Program carries out requested number of conversation rounds
+___1__ 1 pt: Program carries out requested number of conversation rounds
 
-_____ 1 pt: Allocates static array of canned responses
+___1__ 1 pt: Allocates static array of canned responses
 
 ### Level 2 (3 pts)
 
-_____ 1 pt: Uses a canned response when no mirror words detected
+___1__ 1 pt: Uses a canned response when no mirror words detected
 
-_____ 1 pt: Detects the requested set of mirror words (at minimum)
+___1__ 1 pt: Detects the requested set of mirror words (at minimum)
 
-_____ 1 pt: Replaces simple mirror words appropriately (unpunctuated, lowercase)
+__1__ 1 pt: Replaces simple mirror words appropriately (unpunctuated, lowercase)
 
 ### Level 3 (3 pts)
 
-_____ 1 pt: Makes all appropriate mirror replacements
+___1__  pt: Makes all appropriate mirror replacements
 
-_____ 1 pt: Stores transcript of the conversation in an array
+___1__ 1 pt: Stores transcript of the conversation in an array // I don't know if arraylist counts as array, but I think it is necessary to dynamically modify the contents of this variable, so I used an arraylist.
 
-_____ 1 pt: Prints transcript when terminating
+___1__ 1 pt: Prints transcript when terminating
 
 ## Kudos:
 
-_____ (Kudos!) Handles mirror words with punctuation
+___0__ (Kudos!) Handles mirror words with punctuation
 
-_____ (Kudos!) Generates output with correct punctuation & capitalization
+___1__ (Kudos!) Generates output with correct punctuation & capitalization
 
-_____ (Kudos!) Handles you --> me/I dilemma
+___0__ (Kudos!) Handles you --> me/I dilemma
 
 
 
 ## General Items:
 
-_____ 4 pts: Programs implement interfaces and compile without errors or warnings
+___4__ 4 pts: Programs implement interfaces and compile without errors or warnings
 
-_____ 2 pts: Executes fully & consistently without crashing (exception/freeze)
+___4__ 2 pts: Executes fully & consistently without crashing (exception/freeze)
 
-_____ 2 pt: Complies with style guidelines (missing items 1 pt each):
+___2__ 2 pt: Complies with style guidelines (missing items 1 pt each):
 
       _____ Classes & class members all have Javadoc header comments
 
@@ -64,6 +64,6 @@ _____ 2 pt: Complies with style guidelines (missing items 1 pt each):
 
       _____ Methods avoid confusing side effects
 
-_____ 1 pt: All required files included with submission (including completed checklist file)
+___1__ 1 pt: All required files included with submission (including completed checklist file)
 
-_____ 1 pt: `reflection.md` contains your reflection on the assignment
+___1__ 1 pt: `reflection.md` contains your reflection on the assignment
