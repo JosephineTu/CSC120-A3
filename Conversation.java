@@ -101,8 +101,8 @@ class Conversation implements Chatbot {
         wordsList.set(i,"me");
         notDefault=true;
       }
-      if (word.equals("you")){
-        wordsList.set(i,"me");
+      if (word.equals("your")){
+        wordsList.set(i,"my");
         notDefault=true;
       }
       if (word.equals("Your")){
