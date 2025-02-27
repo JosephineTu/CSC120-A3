@@ -2,44 +2,45 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Arrays;
-interface Chatbot {
-
-  void chat();
-  void printTranscript();
-  String respond(String inputString); 
-  
-}
-
 class Conversation implements Chatbot {
 
   // Attributes 
   int round; //the number of rounds of conversation
   String[] responses; //the random response bank
-  ArrayList<String> transcript; //records all the conversation 
+  ArrayList<String>transcript; //records all the conversation 
 
   /**
    * Constructor 
    */
-  Conversation(int round,  String[] responses, ArrayList transcript) {
-    this.round=round;
-    this.responses=responses;
-    this.transcript=transcript;
+  Conversation() {
+    this.round=0;
+    this.responses=new String[]{"Yes,and?", "Ugh huh...","I see."};
+    this.transcript=new ArrayList<String>();
   }
 
   /**
    * Starts and runs the conversation with the user
    */
   public void chat() {
-    Scanner strInput=new Scanner(System.in);
-    System.out.print("What do you want to talk about: ");
-    //print a message to start a new round && ask for user input
-    String user_input=strInput.nextLine();
-    String response=this.respond(user_input);
-    System.out.println(response);
-    //apends this to the array transcript
-    this.transcript.add(user_input);
-    this.transcript.add(response);
+    Scanner input = new Scanner(System.in);
+    System.out.print("How many rounds? ");
+    this.round = input.nextInt();
+    input.nextLine();
+    System.out.println("Hi there! What's on your mind?");
+    this.transcript.add("Hi there! What's on your mind?");
 
+    for (int i = 0; i < this.round; i++) {
+        // Get user input
+        String user_input = input.nextLine();
+        String response = this.respond(user_input);
+
+        // Display response
+        System.out.println(response);
+
+        // Store in transcript
+        this.transcript.add("You: " + user_input);
+        this.transcript.add("Bot: " + response);
+    }
   }
 
   /**
@@ -50,15 +51,10 @@ class Conversation implements Chatbot {
     // iterates in the ArrayList<> transcript
     for(int i=0; i<this.transcript.size(); i++){
       String saySomething=this.transcript.get(i);
-      // use odd/even turns to decide which side is speaking
-      if (i%2==0){
-        System.out.println("Human: "+saySomething);
-      }
-      else if (i%2==1){
-        System.out.println("Bot: "+saySomething);
+      System.out.println(saySomething);
       }
     }
-  }
+
 
   /**
    * Gives appropriate response (mirrored or canned) to user input
@@ -67,6 +63,7 @@ class Conversation implements Chatbot {
    */
   public String respond(String inputString) {
     // Set up a canned response
+    
     Random rand = new Random();
     int random = rand.nextInt(this.responses.length);
     String returnString = this.responses[random];
@@ -78,7 +75,7 @@ class Conversation implements Chatbot {
       boolean notDefault=false;
       String word = wordsList.get(i);
       if (word.equals("I")) {
-        wordsList.set(i, "you");
+        wordsList.set(i, "You");
         notDefault=true;
       }
       if (word.equals("my")) {
@@ -120,14 +117,8 @@ class Conversation implements Chatbot {
     return returnString;
   }
   public static void main(String[] arguments) {
-    System.out.print("How many rounds of conversation do you want: ");
-    Scanner numInput=new Scanner(System.in);
-    int round=numInput.nextInt();
-    ArrayList<String> transcript=new ArrayList<>(); 
-    Conversation myConversation = new Conversation(round,new String[]{"Ugh huh...","Yes, and?","Tell me more."},transcript);
-    for(int i=0;i<myConversation.round;i++){
-      myConversation.chat();
-    }
+    Conversation myConversation=new Conversation();
+    myConversation.chat();
     myConversation.printTranscript();
 
   }
