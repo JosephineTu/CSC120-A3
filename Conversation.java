@@ -41,6 +41,7 @@ class Conversation implements Chatbot {
         this.transcript.add("You: " + user_input);
         this.transcript.add("Bot: " + response);
     }
+    input.close();
   }
 
   /**
@@ -120,6 +121,5 @@ class Conversation implements Chatbot {
     Conversation myConversation=new Conversation();
     myConversation.chat();
     myConversation.printTranscript();
-
   }
 }
