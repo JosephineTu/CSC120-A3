@@ -72,11 +72,20 @@ class Conversation implements Chatbot {
     String[] words = inputString.split("\\s+");
     ArrayList<String> wordsList = new ArrayList<>(Arrays.asList(words));
     // Detect mirror words, replace words based on the rules
+    boolean notDefault=false;
+    String lastWord = wordsList.get(wordsList.size() - 1);
+    if (lastWord.endsWith(".")) {
+      wordsList.set(wordsList.size() - 1, lastWord.substring(0, lastWord.length() - 1));
+    }
     for (int i = 0; i < wordsList.size(); i++) {
-      boolean notDefault=false;
+
       String word = wordsList.get(i);
       if (word.equals("I")) {
         wordsList.set(i, "You");
+        notDefault=true;
+      }
+      if (word.equals("You")){
+        wordsList.set(i,"I");
         notDefault=true;
       }
       if (word.equals("my")) {
@@ -95,7 +104,7 @@ class Conversation implements Chatbot {
         wordsList.set(i,"you");
         notDefault=true;
       }
-      if (word.equals("you")){
+      else if (word.equals("you")){
         wordsList.set(i,"me");
         notDefault=true;
       }
@@ -108,12 +117,10 @@ class Conversation implements Chatbot {
         notDefault=true;
       }
       // See if mirror words appeared, add punctuation as needed
-      if(notDefault){
-        returnString = String.join(" ", wordsList);
-        if (Character.isUpperCase(wordsList.get(0).charAt(0))){
-          returnString+="?";
-        }
+      if (notDefault) {
+        returnString = String.join(" ", wordsList) + "?";
       }
+      
     }
     return returnString;
   }
